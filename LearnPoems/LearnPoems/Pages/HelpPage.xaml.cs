@@ -1,4 +1,5 @@
-﻿using LearnPoems.Logging;
+﻿using LearnPoems.Helpers;
+using LearnPoems.Logging;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,6 +17,7 @@ namespace LearnPoems.Pages
             // Remove Nav bar
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = App.Model;
+            PageHelper.EnableLabelUri(urlLabel);
         }
 
         private async void BackToStart_Clicked(object sender, System.EventArgs e)
