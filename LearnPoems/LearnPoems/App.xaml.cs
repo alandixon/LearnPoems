@@ -12,6 +12,11 @@ namespace LearnPoems
         public static Settings.Settings Settings { get; set; }
         public static Model.Model Model { get; set; }
 
+        public static string SystemFolderName = "Poems";
+        public static string PoemFolderName = "Poems";
+        public static string SystemFolderPath { get; set; }
+        public static string PoemFolderPath { get; set; }
+
         // Pages
         public static StartPage StartPage { get; set; }
         public static ViewPoemPage ViewPoemPage { get; set; }

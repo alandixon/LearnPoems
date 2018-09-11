@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LearnPoems.Settings
+﻿namespace LearnPoems.Settings
 {
     public class Settings
     {
+        public string PoemFolder { get; set; }
+
+        public string SystemFolder { get; set; }
     }
 }
