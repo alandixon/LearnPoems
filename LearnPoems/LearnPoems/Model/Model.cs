@@ -52,10 +52,11 @@ namespace LearnPoems.Model
                 // Get system folder
                 //string rootFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData); // /data/user/0/org.alandixon.LearnPoems/files/.config
                 //string rootFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData); // /data/user/0/org.alandixon.LearnPoems/files/.local/share
-                App.SystemFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+                // Todo: Crashing here and the exception in't caught by the surrounding try catch, or by the Droid project UnobservedTaskException catcher
+                // App.SystemFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
                 // Get settings
                 // Get poem folder
-                App.PoemFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData);
+                // App.PoemFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData);
             }
             catch (System.Exception ex)
             {
