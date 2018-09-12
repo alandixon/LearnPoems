@@ -7,7 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnPoems.Android", "Learn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnPoems.iOS", "LearnPoems\LearnPoems.iOS\LearnPoems.iOS.csproj", "{792423EC-6A15-47D2-8BD5-B981381E0B0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnPoems", "LearnPoems\LearnPoems\LearnPoems.csproj", "{CDF59D37-2342-477D-8E1E-5AFB02A83BDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnPoems", "LearnPoems\LearnPoems\LearnPoems.csproj", "{CDF59D37-2342-477D-8E1E-5AFB02A83BDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{E10DE4E4-8069-490E-99F6-35839275B7FF}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
