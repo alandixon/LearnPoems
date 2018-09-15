@@ -51,6 +51,7 @@ namespace LearnPoems.Model
             get { return App.FileRepository; }
         }
 
+
         private void Initialise()
         {
             try
