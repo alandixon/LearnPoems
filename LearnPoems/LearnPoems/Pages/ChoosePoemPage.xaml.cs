@@ -14,7 +14,7 @@ namespace LearnPoems.Pages
         {
             InitializeComponent();
             // Remove Nav bar
-            NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);            
         }
 
         private async void BackToStart_Clicked(object sender, System.EventArgs e)

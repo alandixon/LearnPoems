@@ -13,10 +13,18 @@ namespace LearnPoems.Droid
     [Activity(Label = "LearnPoems", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        #region Logging
+        private LearnPoems.Droid.Logging.Log Log = new Logging.Log();
+        private string logTag = typeof(MainActivity).FullName;
+        #endregion Logging
+
+
         protected override void OnCreate(Bundle bundle)
         {
-            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;   
+            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
 
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += CurrentDomain_UnhandledException;
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -26,11 +34,16 @@ namespace LearnPoems.Droid
             LoadApplication(new App());
         }
 
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            // ToDo: Log this
+            Log.Error(logTag, "CurrentDomain_UnhandledException");
+        }
+
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs utexargs)
         {
-            // Todo: Try https://forums.xamarin.com/discussion/91543/catch-all-exceptions-to-avoid-crash
-            var newExc = new Exception("TaskSchedulerOnUnobservedTaskException", utexargs.Exception);
-            //newExc.ToLogUnhandledException();
+            // ToDo: Log this
+            Log.Error(logTag, "TaskScheduler_UnobservedTaskException");
         }
     }
 }

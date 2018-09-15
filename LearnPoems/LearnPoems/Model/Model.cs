@@ -1,10 +1,10 @@
 ﻿using LearnPoems.Logging;
+using LearnPoems.Poems;
 using LearnPoems.Text;
 using LearnPoems.Version;
 using System.ComponentModel;
 using System.IO;
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
 
 namespace LearnPoems.Model
 {
@@ -50,13 +50,25 @@ namespace LearnPoems.Model
             try
             {
                 // Get system folder
-                //string rootFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData); // /data/user/0/org.alandixon.LearnPoems/files/.config
-                //string rootFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData); // /data/user/0/org.alandixon.LearnPoems/files/.local/share
-                // Todo: Crashing here and the exception in't caught by the surrounding try catch, or by the Droid project UnobservedTaskException catcher
-                // App.SystemFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+                // ToDo: This did crash initially, and then magically stopped. It's worth keeping an eye on what happens with a clean install
+                App.SystemFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);  // /data/user/0/org.alandixon.LearnPoems/files/.config
+
                 // Get settings
+                App.Settings = Settings.Settings.GetSettings(Path.Combine(App.SystemFolderPath, App.SettingsFileName));
+
                 // Get poem folder
-                // App.PoemFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData);
+                App.PoemFolderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData),App.PoemFolderName);  // /data/user/0/org.alandixon.LearnPoems/files/.local/share/Poems
+
+                DirectoryInfo poemFolder = new DirectoryInfo(App.PoemFolderPath);
+                // Determine whether the directory exists.
+                if (!poemFolder.Exists)
+                {
+                    Log.Info(logTag, "Creating new poemFolder");
+                    poemFolder.Create();
+                }
+
+                // Set repository (but only fetch poem list as required)
+                App.FileRepository = new FileRepository(poemFolder);
             }
             catch (System.Exception ex)
             {

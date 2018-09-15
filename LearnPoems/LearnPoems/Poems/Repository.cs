@@ -11,6 +11,11 @@ namespace LearnPoems.Poems
 
     public abstract class Repository : IRepository
     {
+        public Repository()
+        {
+            Poems = new List<Poem>();
+        }
+
         //public Repository(RepositoryType repositoryType, string path)
         //{
         //    RepositoryType = repositoryType;
