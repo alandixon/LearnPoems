@@ -6,6 +6,8 @@
         <StackLayout>
             <StackLayout Orientation="Vertical" VerticalOptions="Center">
                 <Label Text="View Poem"/>
+                <Label x:Name="Spacer"/>
+                <Label Text="{Binding Repository.SelectedPoem.AllChunks}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -12,5 +12,6 @@ namespace LearnPoems.Poems
 
         List<Poem> Poems { get; set; }
 
+        Poem SelectedPoem { get; set; }
     }
 }

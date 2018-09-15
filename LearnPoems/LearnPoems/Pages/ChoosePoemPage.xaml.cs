@@ -1,4 +1,5 @@
 ﻿using LearnPoems.Logging;
+using LearnPoems.Poems;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,6 +28,13 @@ namespace LearnPoems.Pages
         {
             Log.Debug(logTag, "BackToStart_Clicked()");
             await Navigation.PopAsync();
+        }
+
+        private async void PoemListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            App.FileRepository.SelectedPoem = e.Item as Poem;
+            Log.Debug(logTag, "PoemListView_ItemTapped() on poem " + App.FileRepository.SelectedPoem.Name);
+            await Navigation.PushAsync(App.ViewPoemPage);
         }
     }
 

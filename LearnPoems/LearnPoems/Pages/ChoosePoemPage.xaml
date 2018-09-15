@@ -7,7 +7,9 @@
         <StackLayout Orientation="Vertical" VerticalOptions="Center">
             <Label HorizontalTextAlignment="Center" Text="Choose Poem" FontSize="Large" />
 
-            <ListView x:Name="PoemListView" ItemsSource="{Binding Repository.Poems}" HasUnevenRows="true"/>
+            <Label x:Name="Spacer" HorizontalTextAlignment="Center" FontSize="Large" />
+
+            <ListView x:Name="PoemListView" ItemsSource="{Binding Repository.Poems}" HasUnevenRows="true" ItemTapped="PoemListView_ItemTapped"/>
 
         </StackLayout>
         
