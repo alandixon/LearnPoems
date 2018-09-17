@@ -13,7 +13,11 @@ namespace LearnPoems.Pages
             // Identify a tap on the label with an Action to take
             this.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                Command = new Command(() => tapAction()),
+                Command = new Command(() =>
+                {
+                    // If there's an action wired in, do it
+                    tapAction?.Invoke();
+                }),
             });
         }
 
