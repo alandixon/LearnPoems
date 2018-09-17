@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LearnPoems.Pages.ViewPoemPage">
     <ContentPage.Content>
+
         <StackLayout>
-            <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <Label Text="View Poem"/>
-                <Label x:Name="Spacer"/>
-                <Label Text="{Binding Repository.SelectedPoem.AllChunks}"/>
+
+            <StackLayout x:Name="PoemLayout" Padding="8">
             </StackLayout>
+
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

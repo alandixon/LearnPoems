@@ -16,6 +16,9 @@ namespace LearnPoems.Pages
             // Remove Nav bar
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = App.Model;
+
+            // Initialise the poem viewer
+            App.PoemViewer = new PoemViewer(PoemLayout);
         }
 
         private async void BackToStart_Clicked(object sender, System.EventArgs e)

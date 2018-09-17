@@ -30,9 +30,13 @@ namespace LearnPoems.Pages
             await Navigation.PopAsync();
         }
 
+        /// <summary> A poem has been selected </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void PoemListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             App.FileRepository.SelectedPoem = e.Item as Poem;
+            App.PoemViewer.AddPoem(App.FileRepository.SelectedPoem);
             Log.Debug(logTag, "PoemListView_ItemTapped() on poem " + App.FileRepository.SelectedPoem.Name);
             await Navigation.PushAsync(App.ViewPoemPage);
         }
