@@ -3,13 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LearnPoems.Pages.ViewPoemPage">
     <ContentPage.Content>
-
-        <StackLayout>
-
-            <StackLayout x:Name="PoemLayout" Padding="8">
+        <ScrollView>
+            <StackLayout>
+                <StackLayout x:Name="PoemLayout" Padding="8">
+                </StackLayout>
             </StackLayout>
-
-        </StackLayout>
-        
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
