@@ -18,6 +18,7 @@ namespace LearnPoems.Pages
         Undefined = 0,
         Title,
         HelpText,
+        CurrentLine,
         NormalPoem
     }
 
@@ -27,6 +28,9 @@ namespace LearnPoems.Pages
         private ILog Log = DependencyService.Get<ILog>();
         private string logTag = typeof(PoemViewer).FullName;
         #endregion Logging
+
+        private static readonly double defaultLabelFontSize = (new Label()).FontSize;
+
 
         public PoemViewer(StackLayout stackLayout)
         {
@@ -104,15 +108,20 @@ namespace LearnPoems.Pages
                 LoadTitleLine(poem);
                 Status = PoemViewerStatus.PartialPoem;
             }
-            // Remove clickability from the last active line, as long as its not the title
+            // Remove clickability and formatting from the last active line, as long as its not the title
             if (StackLayout.Children.Count > 1)
             {
                 ((StackLayout.Children[StackLayout.Children.Count - 1]) as ExtendedLabel).tapAction = null;
+                ((StackLayout.Children[StackLayout.Children.Count - 1]) as ExtendedLabel).FontAttributes = FontAttributes.None;
             }
             // Display the next line
-            ExtendedLabel nextLine_Label = GetChunkToExtendedLabel(poem, DisplayedChunkIndex++, ChunkType.NormalPoem);
+            ExtendedLabel nextLine_Label = GetChunkToExtendedLabel(poem, DisplayedChunkIndex++, ChunkType.CurrentLine);
             nextLine_Label.tapAction = () => ShowNextChunk(poem, DisplayedChunkIndex, Status);
             StackLayout.Children.Add(nextLine_Label);
+            nextLine_Label.Focus();
+
+            // Scroll this label into view if necessary
+            (StackLayout.Parent as ScrollView).ScrollToAsync(nextLine_Label, ScrollToPosition.Center, true);
         }
 
         /// <summary> Get the identified chunk and load it into a UI ExtendedLabel component </summary>
@@ -149,9 +158,13 @@ namespace LearnPoems.Pages
             {
                 case ChunkType.Title:
                     label.FontAttributes = FontAttributes.Bold;
+                    label.FontSize = defaultLabelFontSize * App.GoldenRatio;
                     break;
                 case ChunkType.HelpText:
                     label.FontAttributes = FontAttributes.Italic;
+                    break;
+                case ChunkType.CurrentLine:
+                    label.FontAttributes = FontAttributes.Bold;
                     break;
                 case ChunkType.NormalPoem:
                 default:
