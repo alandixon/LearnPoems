@@ -23,6 +23,8 @@ namespace LearnPoems.Poems
             }
         }
 
+        public bool IsEmpty { get; set; }
+
         public override string ToString()
         {
             return Name;

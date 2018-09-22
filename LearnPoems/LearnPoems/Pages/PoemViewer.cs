@@ -10,7 +10,8 @@ namespace LearnPoems.Pages
     {
         Undefined = 0,
         LineOnePlushelp,
-        PartialPoem
+        PartialPoem,
+        CompletePoem
     }
 
     public enum ChunkType
@@ -64,24 +65,34 @@ namespace LearnPoems.Pages
         {
             LoadTitleLine(poem);
 
-            // Load help lines
-            // Note that we don't increment DisplayedChunkIndex, because this isn't poem we're displaying, it's help text
-            ExtendedLabel nextLineTap_HelpLabel = GetFormattedLabel(ChunkType.HelpText);
-            nextLineTap_HelpLabel.Text = PoemViewerHelpText.NextLineTap_Help;
-            StackLayout.Children.Add(nextLineTap_HelpLabel);
-            nextLineTap_HelpLabel.tapAction = () => ShowNextChunk(poem, DisplayedChunkIndex, Status);
+            if (poem.IsEmpty)
+            {
+                // Remove clickability from Title line
+                ((StackLayout.Children[0]) as ExtendedLabel).tapAction = null;
+                // Set status
+                Status = PoemViewerStatus.CompletePoem;
+            }
+            else
+            {
+                // Load help lines
+                // Note that we don't increment DisplayedChunkIndex, because this isn't poem we're displaying, it's help text
+                ExtendedLabel nextLineTap_HelpLabel = GetFormattedLabel(ChunkType.HelpText);
+                nextLineTap_HelpLabel.Text = PoemViewerHelpText.NextLineTap_Help;
+                StackLayout.Children.Add(nextLineTap_HelpLabel);
+                nextLineTap_HelpLabel.tapAction = () => ShowNextChunk(poem, DisplayedChunkIndex, Status);
 
-            ExtendedLabel TitleTap_HelpLabel = GetFormattedLabel(ChunkType.HelpText);
-            TitleTap_HelpLabel.Text = PoemViewerHelpText.TitleTap_Help;
-            StackLayout.Children.Add(TitleTap_HelpLabel);
-            TitleTap_HelpLabel.tapAction = () => LoadWholePoem(poem);
+                ExtendedLabel TitleTap_HelpLabel = GetFormattedLabel(ChunkType.HelpText);
+                TitleTap_HelpLabel.Text = PoemViewerHelpText.TitleTap_Help;
+                StackLayout.Children.Add(TitleTap_HelpLabel);
+                TitleTap_HelpLabel.tapAction = () => LoadWholePoem(poem);
 
-            ExtendedLabel PreviousLineTap_HelpLabel = GetFormattedLabel(ChunkType.HelpText);
-            PreviousLineTap_HelpLabel.Text = PoemViewerHelpText.PreviousLineTap_Help;
-            StackLayout.Children.Add(PreviousLineTap_HelpLabel);
+                ExtendedLabel PreviousLineTap_HelpLabel = GetFormattedLabel(ChunkType.HelpText);
+                PreviousLineTap_HelpLabel.Text = PoemViewerHelpText.PreviousLineTap_Help;
+                StackLayout.Children.Add(PreviousLineTap_HelpLabel);
 
-            // and define what we're doing
-            Status = PoemViewerStatus.LineOnePlushelp;
+                // and define what we're doing
+                Status = PoemViewerStatus.LineOnePlushelp;
+            }
         }
 
         private void LoadTitleLine(Poem poem)
@@ -98,6 +109,8 @@ namespace LearnPoems.Pages
 
         private void ShowNextChunk(Poem poem, int DisplayedChunkIndex, PoemViewerStatus status)
         {
+            // Todo: After the last line, show a ~o~ or something similar
+
             // If we are displaying title and help, clear it out and show just a clean title
             if (Status == PoemViewerStatus.LineOnePlushelp)
             {
@@ -110,10 +123,26 @@ namespace LearnPoems.Pages
                 ((StackLayout.Children[StackLayout.Children.Count - 1]) as ExtendedLabel).tapAction = null;
                 ((StackLayout.Children[StackLayout.Children.Count - 1]) as ExtendedLabel).FontAttributes = FontAttributes.None;
             }
-            // Display the next line
-            ExtendedLabel nextLine_Label = GetChunkToExtendedLabel(poem, DisplayedChunkIndex++, ChunkType.CurrentLine);
-            nextLine_Label.tapAction = () => ShowNextChunk(poem, DisplayedChunkIndex, Status);
-            StackLayout.Children.Add(nextLine_Label);
+            // Display the next line, pre-adding empty lines if necessary
+            ExtendedLabel nextLine_Label;
+            // do loop around adding empty lines without formatting or allowing tapping
+            do
+            {
+                nextLine_Label = GetChunkToExtendedLabel(poem, DisplayedChunkIndex++, ChunkType.NormalPoem);
+                StackLayout.Children.Add(nextLine_Label);
+            } while (string.IsNullOrWhiteSpace(nextLine_Label.Text) && DisplayedChunkIndex < poem.Chunks.Length);
+
+            // If this isn't the last line, format it (highlight it with bold) and allow tapping it to move on
+            if (DisplayedChunkIndex < poem.Chunks.Length)
+            {
+                FormatLabel(nextLine_Label, ChunkType.CurrentLine);
+                nextLine_Label.tapAction = () => ShowNextChunk(poem, DisplayedChunkIndex, Status);
+            }
+            else
+            {
+                // Poem is completely displayed
+                Status = PoemViewerStatus.CompletePoem;
+            }
             nextLine_Label.Focus();
 
             // Scroll this label into view if necessary
@@ -147,9 +176,18 @@ namespace LearnPoems.Pages
             return label;
         }
 
+        /// <summary> Return an Extended label with formatting dependent on chunkType</summary>
+        /// <param name="chunkType"></param>
+        /// <returns></returns>
         private ExtendedLabel GetFormattedLabel(ChunkType chunkType)
         {
             ExtendedLabel label = new ExtendedLabel();
+            FormatLabel(label, chunkType);
+            return label;
+        }
+
+        private void FormatLabel(ExtendedLabel label, ChunkType chunkType)
+        {
             switch (chunkType)
             {
                 case ChunkType.Title:
@@ -166,7 +204,6 @@ namespace LearnPoems.Pages
                 default:
                     break;
             }
-            return label;
         }
 
 
