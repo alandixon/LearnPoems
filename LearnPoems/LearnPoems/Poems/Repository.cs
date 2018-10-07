@@ -10,6 +10,7 @@ namespace LearnPoems.Poems
         ZipFile
     }
 
+    /// <summary> I'm thinking about having more than one repository type, maybe adding a ZipFileRepo or similar, hence this abstract type</summary>
     public abstract class Repository : IRepository, INotifyPropertyChanged
     {
         public Repository()

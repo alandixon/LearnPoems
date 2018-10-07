@@ -4,11 +4,11 @@ using Xamarin.Forms;
 
 namespace LearnPoems.Helpers
 {
-    public class PageHelper
+    public class StringHelper
     {
         #region Logging
         private static ILog Log = DependencyService.Get<ILog>();
-        private static string logTag = typeof(PageHelper).FullName;
+        private static string logTag = typeof(StringHelper).FullName;
         #endregion Logging
 
         public static void EnableLabelUri(Label label)
@@ -26,6 +26,19 @@ namespace LearnPoems.Helpers
             {
                 Log.Warn(logTag, string.Format("Couldn't click {0} because {1}", label, ex.Message ));
             }
+        }
+
+        /// <summary> Return the passed string truncated to maxLen if necessary</summary>
+        /// <param name="str"></param>
+        /// <param name="maxLen"></param>
+        /// <returns></returns>
+        public static string RestrictStringLength(string str, int maxLen)
+        {
+            if (str.Length <= maxLen)
+            {
+                return str;
+            }
+            return str.Substring(0, maxLen);
         }
     }
 }

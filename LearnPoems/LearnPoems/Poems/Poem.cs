@@ -25,6 +25,14 @@ namespace LearnPoems.Poems
 
         public bool IsEmpty { get; set; }
 
+        //public string ShortName
+        //{
+        //    get
+        //    {
+
+        //    }
+        //}
+
         public override string ToString()
         {
             return Name;
