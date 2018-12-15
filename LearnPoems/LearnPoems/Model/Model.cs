@@ -45,10 +45,26 @@ namespace LearnPoems.Model
             get { return HelpPageText.Credits; }
         }
 
-        
+
         public Repository Repository
         {
             get { return App.FileRepository; }
+        }
+
+        public Settings.Settings Settings
+        {
+            get { return App.Settings; }
+        }
+
+        public string lastPoemName;
+        public string LastPoemName
+        {
+            get { return lastPoemName; }
+            set
+            {
+                lastPoemName = value;
+                NotifyPropertyChanged(LastPoemName);
+            }
         }
 
 
@@ -61,7 +77,7 @@ namespace LearnPoems.Model
                 App.SystemFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);  // /data/user/0/org.alandixon.LearnPoems/files/.config
 
                 // Get settings
-                App.Settings = Settings.Settings.GetSettings(Path.Combine(App.SystemFolderPath, App.SettingsFileName));
+                App.Settings = LearnPoems.Settings.Settings.GetSettings(Path.Combine(App.SystemFolderPath, App.SettingsFileName));
 
                 // Get poem folder
                 App.PoemFolderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData),App.PoemFolderName);  // /data/user/0/org.alandixon.LearnPoems/files/.local/share/Poems

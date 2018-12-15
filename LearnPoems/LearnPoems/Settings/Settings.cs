@@ -71,7 +71,7 @@ namespace LearnPoems.Settings
 
             set
             {
-                LastPoem = value;
+                lastPoem = value;
                 NotifyPropertyChanged("LastPoem");
             }
         }
