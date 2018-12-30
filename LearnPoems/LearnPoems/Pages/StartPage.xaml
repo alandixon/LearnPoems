@@ -6,11 +6,18 @@
 
     <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="8">
         <Label HorizontalTextAlignment="Center" Text="Learn Poems!" FontSize="Large" BackgroundColor="Purple" TextColor="White" />
+        
         <Label Text=""/>
         <Label Text=""/>
-        <Button Text="{Binding LastPoemName}"/>
-        <Button Text="Recent" Clicked="RecentButton_ClickedAsync"/>
+        
+        <!--<Button Text="{Binding LastPoemName}"/>
+        <Button Text="Recent" Clicked="RecentButton_ClickedAsync"/>-->
+        
         <Button Text="Choose" Clicked="ChooseButton_ClickedAsync"/>
+        
+        <Label Text=""/>
+        <Label Text=""/>
+        
         <Button Text="Help" Clicked="HelpButton_ClickedAsync"/>
     </StackLayout>
 

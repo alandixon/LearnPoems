@@ -67,6 +67,16 @@ namespace LearnPoems.Model
             }
         }
 
+        public string PoemFolder
+        {
+            get { return App.PoemFolderPath; }
+            set
+            {
+                App.PoemFolderPath = value;
+                NotifyPropertyChanged(PoemFolder);
+            }
+        }
+
 
         private void Initialise()
         {
