@@ -17,13 +17,13 @@ namespace LearnPoems.Pages
             BindingContext = App.Model;
         }
 
-        private async System.Threading.Tasks.Task ChooseButton_ClickedAsync(object sender, EventArgs e)
+        private async void ChooseButton_ClickedAsync(object sender, EventArgs e)
         {
             Log.Debug(logTag, "ChooseButton_ClickedAsync()");
             await Navigation.PushAsync(App.ChoosePoemPage);
         }
 
-        private async System.Threading.Tasks.Task HelpButton_ClickedAsync(object sender, EventArgs e)
+        private async void HelpButton_ClickedAsync(object sender, EventArgs e)
         {
             Log.Debug(logTag, "HelpButton_ClickedAsync()");
             await Navigation.PushAsync(App.HelpPage);
