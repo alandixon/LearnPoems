@@ -4,6 +4,7 @@ using LearnPoems.Text;
 using LearnPoems.Version;
 using System.ComponentModel;
 using System.IO;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace LearnPoems.Model
@@ -90,7 +91,8 @@ namespace LearnPoems.Model
                 App.Settings = LearnPoems.Settings.Settings.GetSettings(Path.Combine(App.SystemFolderPath, App.SettingsFileName));
 
                 // Get poem folder
-                App.PoemFolderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData),App.PoemFolderName);  // /data/user/0/org.alandixon.LearnPoems/files/.local/share/Poems
+                //App.PoemFolderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), App.PoemFolderName);  // /data/user/0/org.alandixon.LearnPoems/files/.local/share/Poems
+                App.PoemFolderPath = Path.Combine(FileSystem.AppDataDirectory, App.PoemFolderName);    // /data/user/0/org.alandixon.LearnPoems/files/Poems  
 
                 DirectoryInfo poemFolder = new DirectoryInfo(App.PoemFolderPath);
                 // Determine whether the directory exists.
@@ -109,7 +111,11 @@ namespace LearnPoems.Model
             }
         }
 
-
+        public void SavePoem(string poemString)
+        {
+            Poem NewPoem = Poem.GetPoemFromString(poemString);
+            App.FileRepository.SavePoemToFile(NewPoem);
+        }
 
 
         #region INotifyPropertyChanged

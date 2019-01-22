@@ -23,6 +23,12 @@ namespace LearnPoems.Pages
             await Navigation.PushAsync(App.ChoosePoemPage);
         }
 
+        private async void SaveButton_ClickedAsync(object sender, EventArgs e)
+        {
+            Log.Debug(logTag, "SaveButton_ClickedAsync()");
+            await Navigation.PushAsync(App.SavePoemPage);
+        }
+
         private async void HelpButton_ClickedAsync(object sender, EventArgs e)
         {
             Log.Debug(logTag, "HelpButton_ClickedAsync()");

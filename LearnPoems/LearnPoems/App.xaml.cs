@@ -25,6 +25,7 @@ namespace LearnPoems
         public static ChoosePoemPage ChoosePoemPage { get; set; }
         public static HelpPage HelpPage { get; set; }
         public static RecentPage RecentPage { get; set; }
+        public static SavePoemPage SavePoemPage { get; set; }
 
         public static PoemViewer PoemViewer { get; set; }
 
@@ -40,6 +41,7 @@ namespace LearnPoems
             ChoosePoemPage = new ChoosePoemPage();
             HelpPage = new HelpPage();
             RecentPage = new RecentPage();
+            SavePoemPage = new SavePoemPage();
         }
 
         public App()

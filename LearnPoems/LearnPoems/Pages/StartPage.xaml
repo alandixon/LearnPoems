@@ -14,10 +14,15 @@
         <Button Text="Recent" Clicked="RecentButton_ClickedAsync"/>-->
 
         <Button Text="Choose" Clicked="ChooseButton_ClickedAsync" TextColor="White" BackgroundColor="MediumPurple"/>
-        
+
         <Label Text=""/>
         <Label Text=""/>
-        
+
+        <Button Text="Save" Clicked="SaveButton_ClickedAsync" TextColor="White" BackgroundColor="MediumPurple"/>
+
+        <Label Text=""/>
+        <Label Text=""/>
+
         <Button Text="Help" Clicked="HelpButton_ClickedAsync" TextColor="White" BackgroundColor="MediumPurple"/>
     </StackLayout>
 
