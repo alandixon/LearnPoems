@@ -41,6 +41,11 @@
                 <Label Text="{Binding CreditText}" />
             </StackLayout>
 
+            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                <Label Text="SyncFusion license key" FontSize="Large" BackgroundColor="MediumPurple" TextColor="White" />
+                <Entry Text="{Binding SyncFusionLicenseKey}" />
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

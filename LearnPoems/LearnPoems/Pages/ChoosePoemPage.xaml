@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              x:Class="LearnPoems.Pages.ChoosePoemPage">
     <ContentPage.Content>
         
@@ -10,7 +11,19 @@
 
             <Label x:Name="Spacer" HorizontalTextAlignment="Center" FontSize="Large" />
 
-            <ListView x:Name="PoemListView" ItemsSource="{Binding Repository.Poems}" HasUnevenRows="true" ItemTapped="PoemListView_ItemTapped" SeparatorColor="LightGray" />
+            <syncfusion:SfListView x:Name="PoemList" ItemsSource="{Binding Repository.Poems}" ItemTapped="PoemList_ItemTapped" ItemSpacing="8" >
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="2" Margin="2" >
+                            <Frame x:Name="frame" HasShadow="True" Padding="2" Margin="2" CornerRadius="10" BackgroundColor="LightGray">
+                                <StackLayout>
+                                    <Label Text="{Binding Name}" />
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
 
         </StackLayout>
         

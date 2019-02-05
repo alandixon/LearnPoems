@@ -5,7 +5,7 @@
              x:Class="LearnPoems.Pages.SavePoemPage">
 
     <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="8">
-        <Label HorizontalTextAlignment="Center" Text="Enter poem and tap Enter when finished" />
+        <Label HorizontalTextAlignment="Center" Text="Enter poem and tap Save when finished" />
         
         <Label Text=""/>
 

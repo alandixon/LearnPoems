@@ -33,15 +33,16 @@ namespace LearnPoems.Pages
         /// <summary> A poem has been selected </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void PoemListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void PoemList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
-            App.FileRepository.SelectedPoem = e.Item as Poem;
-            App.Settings.LastPoem = e.Item as Poem;
+            App.FileRepository.SelectedPoem = e.ItemData as Poem;
+            App.Settings.LastPoem = e.ItemData as Poem;
             App.Model.LastPoemName = App.Settings.LastPoem.Name;
             App.PoemViewer.StartLoadPoem(App.FileRepository.SelectedPoem);
             Log.Debug(logTag, "PoemListView_ItemTapped() on poem " + App.FileRepository.SelectedPoem.Name);
             await Navigation.PushAsync(App.ViewPoemPage);
         }
+
     }
 
 }
