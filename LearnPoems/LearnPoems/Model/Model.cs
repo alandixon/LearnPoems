@@ -23,7 +23,6 @@ namespace LearnPoems.Model
         public Model()
         {
             Initialise();
-            SyncFusionLicenseKey = Preferences.Get("SyncFusionLicenseKey", "No key set");
         }
 
         public string AppName
@@ -76,18 +75,6 @@ namespace LearnPoems.Model
             {
                 App.PoemFolderPath = value;
                 NotifyPropertyChanged(PoemFolder);
-            }
-        }
-
-        public string syncFusionLicenseKey;
-        public string SyncFusionLicenseKey
-        {
-            get { return syncFusionLicenseKey; }
-            set
-            {
-                syncFusionLicenseKey = value;
-                Preferences.Set("SyncFusionLicenseKey", value);
-                NotifyPropertyChanged("SyncFusionLicenseKey");
             }
         }
 
