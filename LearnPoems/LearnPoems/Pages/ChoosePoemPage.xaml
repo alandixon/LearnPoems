@@ -5,11 +5,7 @@
              x:Class="LearnPoems.Pages.ChoosePoemPage">
     <ContentPage.Content>
         
-        <StackLayout Orientation="Vertical" VerticalOptions="Center">
-
-            <Label HorizontalTextAlignment="Center" Text="Choose a Poem" FontSize="Large" BackgroundColor="Purple" TextColor="White"  />
-
-            <Label x:Name="Spacer" HorizontalTextAlignment="Center" FontSize="Large" />
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="8">
 
             <syncfusion:SfListView x:Name="PoemList" ItemsSource="{Binding Repository.Poems}" ItemTapped="PoemList_ItemTapped" ItemSpacing="2"
                                    AutoFitMode="Height" IsStickyHeader="True" IsStickyFooter="True">
@@ -24,6 +20,23 @@
                         </Grid>
                     </DataTemplate>
                 </syncfusion:SfListView.ItemTemplate>
+
+              <syncfusion:SfListView.HeaderTemplate>
+                <DataTemplate>
+                  <Grid>
+                    <Label HorizontalTextAlignment="Center" Text="Choose a Poem" FontSize="Large" BackgroundColor="Purple" TextColor="White"  />
+                  </Grid>
+                </DataTemplate>
+              </syncfusion:SfListView.HeaderTemplate>
+
+              <syncfusion:SfListView.FooterTemplate>
+                <DataTemplate>
+                  <Grid>
+                    <Button Text="Delete all poems"/>
+                  </Grid>
+                </DataTemplate>
+              </syncfusion:SfListView.FooterTemplate>
+
             </syncfusion:SfListView>
 
         </StackLayout>
