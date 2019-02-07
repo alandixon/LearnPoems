@@ -41,10 +41,10 @@
                 <Label Text="{Binding CreditText}" />
             </StackLayout>
 
-            <!--<StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <Label Text="SyncFusion license key" FontSize="Large" BackgroundColor="MediumPurple" TextColor="White" />
-                <Entry Text="{Binding SyncFusionLicenseKey}" />
-            </StackLayout>-->
+            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                <Label Text="Bulk load delimiter" FontSize="Large" BackgroundColor="MediumPurple" TextColor="White" />
+                <Entry Text="{Binding BulkLoadDelimiter}" />
+            </StackLayout>
 
         </StackLayout>
     </ContentPage.Content>

@@ -11,6 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnPoems", "LearnPoems\Le
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{E10DE4E4-8069-490E-99F6-35839275B7FF}"
 	ProjectSection(SolutionItems) = preProject
+		letterp128.png = letterp128.png
 		LICENSE.md = LICENSE.md
 		README.md = README.md
 	EndProjectSection
