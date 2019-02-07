@@ -1,6 +1,8 @@
 ﻿using LearnPoems.Logging;
 using LearnPoems.Text;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace LearnPoems.Poems
@@ -32,15 +34,24 @@ namespace LearnPoems.Poems
             }
         }
 
+        public void ClearAllPoems()
+        {
+            Poems.Clear();
+            foreach (string filePath in files)
+            {
+                File.Delete(filePath);
+            }
+        }
+
         private Poem ReadPoemFromFile(string filePath)
         {
             Poem poem = new Poem();
             try
             {
-                poem.Chunks = File.ReadAllLines(filePath);
-                if (poem.Chunks.Length == 0)
+                poem.Chunks = File.ReadAllLines(filePath).ToList();
+                if (poem.Chunks.Count == 0)
                 {
-                    poem.Chunks = new string[] { MiscText.EmptyPoemText };
+                    poem.Chunks = new List<string> { MiscText.EmptyPoemText };
                     poem.IsEmpty = true;
                 }
             }
@@ -51,7 +62,15 @@ namespace LearnPoems.Poems
             return poem;
         }
 
-        public void SavePoemToFile(Poem poem)
+        public void SavePoemsToFiles(List<Poem> poems)
+        {
+            foreach (var poem in poems)
+            {
+                SavePoemToFile(poem);
+            }
+        }
+
+        private void SavePoemToFile(Poem poem)
         {
             string fullPath = System.IO.Path.Combine(App.PoemFolderPath, poem.Name);
             File.WriteAllLines(fullPath, poem.Chunks);

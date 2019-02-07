@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 
 namespace LearnPoems.Poems
 {
@@ -10,7 +10,7 @@ namespace LearnPoems.Poems
 
         string Path { get; set; }
 
-        List<Poem> Poems { get; set; }
+        ObservableCollection<Poem> Poems { get; set; }
 
         Poem SelectedPoem { get; set; }
     }

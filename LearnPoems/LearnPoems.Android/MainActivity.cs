@@ -19,7 +19,7 @@ namespace LearnPoems.Droid
         {
             //Register Syncfusion license
             // Based on https://www.syncfusion.com/kb/9179/syncfusion-license-register-without-hardcoded
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("==============##SyncfusionLicense##==============");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("==============================##SyncfusionLicense##==============================");
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += CurrentDomain_UnhandledException;

@@ -1,5 +1,6 @@
 ﻿using LearnPoems.Logging;
 using LearnPoems.Poems;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -29,6 +30,19 @@ namespace LearnPoems.Pages
             Log.Debug(logTag, "BackToStart_Clicked()");
             await Navigation.PopAsync();
         }
+
+        private async void DeleteAllPoems_ClickedAsync(object sender, EventArgs e)
+        {
+            Log.Debug(logTag, "DeleteAllPoems_ClickedAsync()");
+
+            var answer = await DisplayAlert(string.Format("There are {0} Poems", App.FileRepository.Poems.Count), "Delete all Poems?", "Yes", "No");
+            if (answer)
+            {
+                App.FileRepository.ClearAllPoems();
+            }
+        }
+
+
 
         /// <summary> A poem has been selected </summary>
         /// <param name="sender"></param>
