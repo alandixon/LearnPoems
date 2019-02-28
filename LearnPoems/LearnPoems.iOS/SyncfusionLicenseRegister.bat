@@ -13,17 +13,9 @@
 	::Replacement statement
 	if NOT "%LicenseKey%" == "" (
 		if "%buildType%" == "PostBuild" (
-			for /f "delims=" %%i in ('type "%sourceFile%" ^& break ^> "%sourceFile%" ') do (
-			set "line=%%i"
-			setlocal enabledelayedexpansion
-			>>"%sourceFile%" echo(!line:%LicenseKey%=%DummyKey%!
-			endlocal
-		))
+		powershell -Command "(gc %sourceFile%) -Replace '%LicenseKey%','%DummyKey%'|SC %sourceFile%"
+		)
 		if "%buildType%" == "PreBuild" (
-		for /f "delims=" %%i in ('type "%sourceFile%" ^& break ^> "%sourceFile%" ') do (
-			set "line=%%i"
-			setlocal enabledelayedexpansion
-			>>"%sourceFile%" echo(!line:%DummyKey%=%LicenseKey%!
-			endlocal
-		))
+		powershell -Command "(gc %sourceFile%) -Replace '%DummyKey%','%LicenseKey%'|SC %sourceFile%"
+		)
 	)

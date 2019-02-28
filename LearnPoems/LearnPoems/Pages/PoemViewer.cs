@@ -23,6 +23,7 @@ namespace LearnPoems.Pages
         NormalPoem
     }
 
+    // Todo: New settings page with font size adjustment
     public class PoemViewer
     {
         #region Logging
@@ -97,6 +98,9 @@ namespace LearnPoems.Pages
 
         private void LoadTitleLine(Poem poem)
         {
+            // Todo: Have setting and optionally allow [ddd] to be hidden when poem is loaded
+            // This allows numbers for sorting without them being displayed
+
             StackLayout.Children.Clear();
             DisplayedChunkIndex = 0;
             // Load the title line text

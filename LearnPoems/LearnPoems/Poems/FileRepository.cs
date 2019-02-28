@@ -72,6 +72,8 @@ namespace LearnPoems.Poems
 
         private void SavePoemToFile(Poem poem)
         {
+            // Todo: Check whether file name is already used and postfix with time based hash if needed to prevent duplication.
+
             string fullPath = System.IO.Path.Combine(App.PoemFolderPath, poem.Name);
             File.WriteAllLines(fullPath, poem.Chunks);
             RefreshPoemList();
