@@ -30,7 +30,7 @@ namespace LearnPoems
             Model = new Model.Model();
             //Register Syncfusion license
             // Based on https://www.syncfusion.com/kb/9179/syncfusion-license-register-without-hardcoded
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("===##SyncfusionLicense##===");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("##SyncfusionLicense##");
             Settings = new Settings.Settings();
             StartPage = new StartPage();
             ViewPoemPage = new ViewPoemPage();
