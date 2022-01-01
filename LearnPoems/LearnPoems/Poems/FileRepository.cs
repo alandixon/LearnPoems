@@ -1,4 +1,5 @@
 ﻿using LearnPoems.Logging;
+using LearnPoems.Text;
 using System.IO;
 using Xamarin.Forms;
 
@@ -39,7 +40,8 @@ namespace LearnPoems.Poems
                 poem.Chunks = File.ReadAllLines(filePath);
                 if (poem.Chunks.Length == 0)
                 {
-                    throw new FileLoadException(string.Format("0 lines found in file {0}", filePath));
+                    poem.Chunks = new string[] { MiscText.EmptyPoemText };
+                    poem.IsEmpty = true;
                 }
             }
             catch (System.Exception ex)
