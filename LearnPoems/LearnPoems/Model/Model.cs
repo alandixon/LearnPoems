@@ -2,7 +2,9 @@
 using LearnPoems.Text;
 using LearnPoems.Version;
 using System.ComponentModel;
+using System.IO;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace LearnPoems.Model
 {
@@ -19,6 +21,7 @@ namespace LearnPoems.Model
 
         public Model()
         {
+            Initialise();
         }
 
         public string AppName
@@ -41,6 +44,27 @@ namespace LearnPoems.Model
         {
             get { return HelpPageText.Credits; }
         }
+
+        private void Initialise()
+        {
+            try
+            {
+                // Get system folder
+                //string rootFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData); // /data/user/0/org.alandixon.LearnPoems/files/.config
+                //string rootFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData); // /data/user/0/org.alandixon.LearnPoems/files/.local/share
+                App.SystemFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+                // Get settings
+                // Get poem folder
+                App.PoemFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData);
+            }
+            catch (System.Exception ex)
+            {
+                Log.Error(logTag, string.Format("Initialise() failed: {0}", ex.Message));
+            }
+        }
+
+
+
 
         #region INotifyPropertyChanged
 
