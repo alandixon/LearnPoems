@@ -4,10 +4,13 @@
              x:Class="LearnPoems.Pages.HelpPage">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="8">
-            <Label HorizontalTextAlignment="Center" Text="Help!" FontSize="Large"/>
+
+            <Label HorizontalTextAlignment="Center" Text="Help!" BackgroundColor="Purple" TextColor="White" FontSize="Large"/>
+
+            <Label HorizontalTextAlignment="Center" Text="" FontSize="Large"/>
 
             <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <Label Text="{Binding AppName}" FontSize="Large" BackgroundColor="Purple" TextColor="White" />
+                <Label Text="{Binding AppName}" FontSize="Large" BackgroundColor="MediumPurple" TextColor="White" />
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Version:"/>
                     <Label Text="{Binding AppVersionName}"/>
@@ -24,17 +27,17 @@
             </StackLayout>
 
             <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <Label Text="Copyright ©" FontSize="Large" BackgroundColor="Purple" TextColor="White" />
+                <Label Text="Copyright ©" FontSize="Large" BackgroundColor="MediumPurple" TextColor="White" />
                 <Label Text="{Binding CopyrightText}" />
             </StackLayout>
 
             <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <Label Text="Poem folder" FontSize="Large" BackgroundColor="Purple" TextColor="White" />
+                <Label Text="Poem folder" FontSize="Large" BackgroundColor="MediumPurple" TextColor="White" />
                 <Label Text="{Binding PoemFolder}" />
             </StackLayout>
 
             <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <Label Text="Credits" FontSize="Large" BackgroundColor="Purple" TextColor="White" />
+                <Label Text="Credits" FontSize="Large" BackgroundColor="MediumPurple" TextColor="White" />
                 <Label Text="{Binding CreditText}" />
             </StackLayout>
 

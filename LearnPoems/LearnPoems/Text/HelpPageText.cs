@@ -8,7 +8,7 @@ namespace LearnPoems.Text
             "Make sure that you aren't breaking copyright when adding content to " + App.AppName;
 
         public static readonly string Credits =
-            string.Empty;
+            "None yet";
             //"Credit 1" + Environment.NewLine +
             //"Credit 2" + Environment.NewLine;
     }

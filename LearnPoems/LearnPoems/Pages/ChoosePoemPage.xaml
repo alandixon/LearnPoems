@@ -5,8 +5,8 @@
     <ContentPage.Content>
         
         <StackLayout Orientation="Vertical" VerticalOptions="Center">
-            
-            <Label HorizontalTextAlignment="Center" Text="Choose Poem" FontSize="Large" />
+
+            <Label HorizontalTextAlignment="Center" Text="Choose Poem" FontSize="Large" BackgroundColor="Purple" TextColor="White"  />
 
             <Label x:Name="Spacer" HorizontalTextAlignment="Center" FontSize="Large" />
 
