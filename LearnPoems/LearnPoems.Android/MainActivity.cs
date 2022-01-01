@@ -28,6 +28,7 @@ namespace LearnPoems.Droid
 
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs utexargs)
         {
+            // Todo: Try https://forums.xamarin.com/discussion/91543/catch-all-exceptions-to-avoid-crash
             var newExc = new Exception("TaskSchedulerOnUnobservedTaskException", utexargs.Exception);
             //newExc.ToLogUnhandledException();
         }
