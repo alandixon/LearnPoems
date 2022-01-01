@@ -1,4 +1,4 @@
-# LearnPoem
+# LearnPoems
 
 An Android app to assist with learning poetry.
 
