@@ -6,15 +6,8 @@
         
         <StackLayout Orientation="Vertical" VerticalOptions="Center">
             <Label HorizontalTextAlignment="Center" Text="Choose Poem" FontSize="Large" />
-            <ListView ItemsSource="{Binding Repository.Poems}" />
 
-            <ListView x:Name="PoemListView" ItemsSource="{Binding Repository.Poems}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Name}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <ListView x:Name="PoemListView" ItemsSource="{Binding Repository.Poems}" HasUnevenRows="true"/>
 
         </StackLayout>
         

@@ -14,7 +14,8 @@ namespace LearnPoems.Pages
         {
             InitializeComponent();
             // Remove Nav bar
-            NavigationPage.SetHasNavigationBar(this, false);            
+            NavigationPage.SetHasNavigationBar(this, false);
+            BindingContext = App.Model;
         }
 
         protected override void OnAppearing()

@@ -41,7 +41,6 @@ namespace LearnPoems.Poems
                 {
                     throw new FileLoadException(string.Format("0 lines found in file {0}", filePath));
                 }
-                poem.Name = poem.Chunks[0];
             }
             catch (System.Exception ex)
             {
