@@ -16,6 +16,8 @@ namespace LearnPoems
         public static StartPage StartPage { get; set; }
         public static ViewPoemPage ViewPoemPage { get; set; }
         public static ChoosePoemPage ChoosePoemPage { get; set; }
+        public static HelpPage HelpPage { get; set; }
+        public static RecentPage RecentPage { get; set; }
 
         static App()
         {
@@ -25,6 +27,8 @@ namespace LearnPoems
             StartPage = new StartPage();
             ViewPoemPage = new ViewPoemPage();
             ChoosePoemPage = new ChoosePoemPage();
+            HelpPage = new HelpPage();
+            RecentPage = new RecentPage();
         }
 
         public App()

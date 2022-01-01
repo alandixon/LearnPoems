@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LearnPoems"
+             x:Class="LearnPoems.Pages.RecentPage">
+
+    <StackLayout Orientation="Vertical" VerticalOptions="Center">
+        <Label HorizontalTextAlignment="Center" Text="Recent" FontSize="Large"/>
+    </StackLayout>
+
+</ContentPage>
