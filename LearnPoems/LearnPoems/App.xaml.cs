@@ -26,6 +26,8 @@ namespace LearnPoems
         public static HelpPage HelpPage { get; set; }
         public static RecentPage RecentPage { get; set; }
 
+        public static PoemViewer PoemViewer { get; set; }
+
         static App()
         {
             Settings = new Settings.Settings();
