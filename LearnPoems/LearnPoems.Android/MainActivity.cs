@@ -8,7 +8,7 @@ using Android.OS;
 using System.Threading.Tasks;
 namespace LearnPoems.Droid
 {
-    [Activity(Label = "LearnPoems", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "LearnPoems", Icon = "@drawable/letterp128", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         #region Logging
@@ -19,7 +19,7 @@ namespace LearnPoems.Droid
         {
             //Register Syncfusion license
             // Based on https://www.syncfusion.com/kb/9179/syncfusion-license-register-without-hardcoded
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("==============================##SyncfusionLicense##==============================");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("=================##SyncfusionLicense##=================");
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += CurrentDomain_UnhandledException;

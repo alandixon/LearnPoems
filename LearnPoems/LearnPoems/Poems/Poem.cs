@@ -8,8 +8,6 @@ namespace LearnPoems.Poems
     [DebuggerDisplay("{Chunks.Length} chunks, Name = {Name}")]
     public class Poem
     {
-        public static readonly string BulkLoadDelimiter = "~~~~";
-
         public string Name { get { return Chunks[0]; } }
 
         public List<string> Chunks { get; set; }
@@ -73,7 +71,7 @@ namespace LearnPoems.Poems
             int startIdx = 0;
             int endIdx = 0;
 
-            MatchCollection matches = Regex.Matches(poemsString, BulkLoadDelimiter);
+            MatchCollection matches = Regex.Matches(poemsString, App.BulkLoadDelimiter);
 
             // If no BulkLoadDelimiter, there's just one poem
             if (matches.Count == 0)
@@ -92,7 +90,7 @@ namespace LearnPoems.Poems
                     {
                         poems.Add(poem);
                     }
-                    startIdx = endIdx + BulkLoadDelimiter.Length;
+                    startIdx = endIdx + App.BulkLoadDelimiter.Length;
                 }
                 // Add the poem after the last delimiter
                 poem = GetPoemFromString(poemsString.Substring(startIdx, poemsString.Length - startIdx));

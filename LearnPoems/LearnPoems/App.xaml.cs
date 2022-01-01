@@ -1,7 +1,5 @@
 using LearnPoems.Pages;
 using LearnPoems.Poems;
-using System.IO;
-using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -26,12 +24,13 @@ namespace LearnPoems
         public static SavePoemPage SavePoemPage { get; set; }
         public static PoemViewer PoemViewer { get; set; }
         public static readonly double GoldenRatio = 1.6180339887;
+        public static readonly string BulkLoadDelimiter = "~~~~";
         static App()
         {
             Model = new Model.Model();
             //Register Syncfusion license
             // Based on https://www.syncfusion.com/kb/9179/syncfusion-license-register-without-hardcoded
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("===============================##SyncfusionLicense##===============================");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("==============##SyncfusionLicense##==============");
             Settings = new Settings.Settings();
             StartPage = new StartPage();
             ViewPoemPage = new ViewPoemPage();

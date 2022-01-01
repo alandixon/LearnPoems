@@ -48,6 +48,11 @@ namespace LearnPoems.Model
         }
 
 
+        public string BulkLoadDelimiter
+        {
+            get { return App.BulkLoadDelimiter; }
+        }
+
         public Repository Repository
         {
             get { return App.FileRepository; }
