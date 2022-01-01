@@ -82,11 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\SyncfusionLicenseRegister.bat">
-      <Link>SyncfusionLicenseRegister.bat</Link>
-    </None>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="SyncfusionLicenseRegister.bat" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LearnPoems\LearnPoems\LearnPoems.csproj">
