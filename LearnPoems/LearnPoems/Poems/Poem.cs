@@ -25,13 +25,13 @@ namespace LearnPoems.Poems
 
         public bool IsEmpty { get; set; }
 
-        //public string ShortName
-        //{
-        //    get
-        //    {
-
-        //    }
-        //}
+        public string ShortName
+        {
+            get
+            {
+                return Helpers.StringHelper.RestrictStringLength(Name, 32);
+            }
+        }
 
         public override string ToString()
         {

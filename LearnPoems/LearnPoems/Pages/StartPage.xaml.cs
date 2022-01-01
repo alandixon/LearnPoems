@@ -14,6 +14,7 @@ namespace LearnPoems.Pages
 			InitializeComponent();
             // Remove Nav bar
             NavigationPage.SetHasNavigationBar(this, false);
+            BindingContext = App.Model;
         }
 
         private async System.Threading.Tasks.Task ChooseButton_ClickedAsync(object sender, EventArgs e)
