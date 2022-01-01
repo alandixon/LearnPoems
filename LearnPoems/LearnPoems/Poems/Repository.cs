@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace LearnPoems.Poems
 {
@@ -9,18 +10,12 @@ namespace LearnPoems.Poems
         ZipFile
     }
 
-    public abstract class Repository : IRepository
+    public abstract class Repository : IRepository, INotifyPropertyChanged
     {
         public Repository()
         {
             Poems = new List<Poem>();
         }
-
-        //public Repository(RepositoryType repositoryType, string path)
-        //{
-        //    RepositoryType = repositoryType;
-        //    Path = path;
-        //}
 
         /// <summary> Try to fetch the poem identified by 'name'</summary>
         /// <param name="name"></param>
@@ -37,5 +32,29 @@ namespace LearnPoems.Poems
         public string Path { get; set; }
 
         public List<Poem> Poems { get; set; }
+
+        private Poem selectedPoem;
+        public Poem SelectedPoem
+        {
+            get { return selectedPoem; }
+            set
+            {
+                selectedPoem = value;
+                NotifyPropertyChanged("SelectedPoem");
+            }
+        }
+
+
+        #region INotifyPropertyChanged
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
+
+        #endregion INotifyPropertyChanged
+
     }
 }
