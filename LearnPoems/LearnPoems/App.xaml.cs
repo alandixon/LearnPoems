@@ -1,20 +1,39 @@
-using System;
+using LearnPoems.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace LearnPoems
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
-		public App ()
-		{
-			InitializeComponent();
+        public static string AppName = "LearnPoems";
 
-			MainPage = new MainPage();
-		}
+        public static Settings.Settings Settings { get; set; }
+        public static Model.Model Model { get; set; }
 
-		protected override void OnStart ()
+        // Pages
+        public static StartPage StartPage { get; set; }
+        public static ViewPoemPage ViewPoemPage { get; set; }
+        public static ChoosePoemPage ChoosePoemPage { get; set; }
+
+        static App()
+        {
+            Settings = new Settings.Settings();
+            Model = new Model.Model();
+
+            StartPage = new StartPage();
+            ViewPoemPage = new ViewPoemPage();
+            ChoosePoemPage = new ChoosePoemPage();
+        }
+
+        public App()
+        {
+            InitializeComponent();
+            MainPage = new NavigationPage(StartPage);
+        }
+
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
