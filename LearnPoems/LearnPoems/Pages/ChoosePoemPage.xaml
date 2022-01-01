@@ -7,15 +7,16 @@
         
         <StackLayout Orientation="Vertical" VerticalOptions="Center">
 
-            <Label HorizontalTextAlignment="Center" Text="Choose Poem" FontSize="Large" BackgroundColor="Purple" TextColor="White"  />
+            <Label HorizontalTextAlignment="Center" Text="Choose a Poem" FontSize="Large" BackgroundColor="Purple" TextColor="White"  />
 
             <Label x:Name="Spacer" HorizontalTextAlignment="Center" FontSize="Large" />
 
-            <syncfusion:SfListView x:Name="PoemList" ItemsSource="{Binding Repository.Poems}" ItemTapped="PoemList_ItemTapped" ItemSpacing="8" >
+            <syncfusion:SfListView x:Name="PoemList" ItemsSource="{Binding Repository.Poems}" ItemTapped="PoemList_ItemTapped" ItemSpacing="2"
+                                   AutoFitMode="Height" IsStickyHeader="True" IsStickyFooter="True">
                 <syncfusion:SfListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="2" Margin="2" >
-                            <Frame x:Name="frame" HasShadow="True" Padding="2" Margin="2" CornerRadius="10" BackgroundColor="LightGray">
+                            <Frame x:Name="frame" Padding="2" Margin="2" CornerRadius="4" BackgroundColor="#DBCFF3">
                                 <StackLayout>
                                     <Label Text="{Binding Name}" />
                                 </StackLayout>
