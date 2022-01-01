@@ -7,7 +7,7 @@
             <Label HorizontalTextAlignment="Center" Text="Help!" FontSize="Large"/>
 
             <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <Label Text="{Binding AppName}" FontSize="Large" BackgroundColor="CornflowerBlue" TextColor="Black" />
+                <Label Text="{Binding AppName}" FontSize="Large" BackgroundColor="Purple" TextColor="White" />
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Version"/>
                     <Label Text="{Binding AppVersionName}"/>
@@ -16,12 +16,12 @@
             </StackLayout>
 
             <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <Label Text="Copyright ©" FontSize="Large" BackgroundColor="CornflowerBlue" TextColor="Black" />
+                <Label Text="Copyright ©" FontSize="Large" BackgroundColor="Purple" TextColor="White" />
                 <Label Text="{Binding CopyrightText}" />
             </StackLayout>
 
             <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <Label Text="Credits" FontSize="Large" BackgroundColor="CornflowerBlue" TextColor="Black" />
+                <Label Text="Credits" FontSize="Large" BackgroundColor="Purple" TextColor="White" />
                 <Label Text="{Binding CreditText}" />
             </StackLayout>
 
