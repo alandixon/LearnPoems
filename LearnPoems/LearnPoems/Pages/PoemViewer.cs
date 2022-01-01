@@ -50,12 +50,8 @@ namespace LearnPoems.Pages
             DisplayedChunkIndex = 0;
             foreach (string chunk in poem.Chunks)
             {
-                ExtendedLabel label = new ExtendedLabel();
-                label.Text = chunk;
-                if (DisplayedChunkIndex==0)
-                {
-                    label.FontAttributes = FontAttributes.Bold;
-                }
+                ChunkType chunkType = (DisplayedChunkIndex == 0) ? ChunkType.Title : ChunkType.NormalPoem;
+                ExtendedLabel label = GetChunkToExtendedLabel(poem, DisplayedChunkIndex, chunkType);
                 StackLayout.Children.Add(label);
                 DisplayedChunkIndex++;
             }
