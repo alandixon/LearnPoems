@@ -29,6 +29,11 @@
             </StackLayout>
 
             <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                <Label Text="Poem folder" FontSize="Large" BackgroundColor="Purple" TextColor="White" />
+                <Label Text="{Binding PoemFolder}" />
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" VerticalOptions="Center">
                 <Label Text="Credits" FontSize="Large" BackgroundColor="Purple" TextColor="White" />
                 <Label Text="{Binding CreditText}" />
             </StackLayout>
