@@ -1,4 +1,5 @@
 using LearnPoems.Pages;
+using LearnPoems.Poems;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,11 +12,12 @@ namespace LearnPoems
 
         public static Settings.Settings Settings { get; set; }
         public static Model.Model Model { get; set; }
+        public static Repository FileRepository { get; set; }
 
-        public static string SystemFolderName = "Poems";
-        public static string PoemFolderName = "Poems";
         public static string SystemFolderPath { get; set; }
         public static string PoemFolderPath { get; set; }
+        public static string SettingsFileName = "Settings";
+        public static string PoemFolderName = "Poems";
 
         // Pages
         public static StartPage StartPage { get; set; }
