@@ -130,10 +130,10 @@ namespace LearnPoems.Pages
             {
                 nextLine_Label = GetChunkToExtendedLabel(poem, DisplayedChunkIndex++, ChunkType.NormalPoem);
                 StackLayout.Children.Add(nextLine_Label);
-            } while (string.IsNullOrWhiteSpace(nextLine_Label.Text) && DisplayedChunkIndex < poem.Chunks.Length);
+            } while (string.IsNullOrWhiteSpace(nextLine_Label.Text) && DisplayedChunkIndex < poem.Chunks.Count);
 
             // If this isn't the last line, format it (highlight it with bold) and allow tapping it to move on
-            if (DisplayedChunkIndex < poem.Chunks.Length)
+            if (DisplayedChunkIndex < poem.Chunks.Count)
             {
                 FormatLabel(nextLine_Label, ChunkType.CurrentLine);
                 nextLine_Label.tapAction = () => ShowNextChunk(poem, DisplayedChunkIndex, Status);
@@ -160,7 +160,7 @@ namespace LearnPoems.Pages
             try
             {
                 label = GetFormattedLabel(chunkType);
-                if (poem.Chunks.Length > chunkIndex)
+                if (poem.Chunks.Count > chunkIndex)
                 {
                     label.Text = poem.Chunks[chunkIndex];
                 }

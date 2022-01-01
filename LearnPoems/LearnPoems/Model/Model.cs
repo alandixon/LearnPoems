@@ -2,6 +2,7 @@
 using LearnPoems.Poems;
 using LearnPoems.Text;
 using LearnPoems.Version;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using Xamarin.Essentials;
@@ -110,10 +111,10 @@ namespace LearnPoems.Model
             }
         }
 
-        public void SavePoem(string poemString)
+        public void SavePoems(string poemsString)
         {
-            Poem NewPoem = Poem.GetPoemFromString(poemString);
-            App.FileRepository.SavePoemToFile(NewPoem);
+            List<Poem> NewPoems = Poem.GetPoemsFromString(poemsString);
+            App.FileRepository.SavePoemsToFiles(NewPoems);
         }
 
 

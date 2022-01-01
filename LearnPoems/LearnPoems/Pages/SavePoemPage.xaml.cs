@@ -19,7 +19,8 @@ namespace LearnPoems.Pages
         private void SaveButton_Clicked(object sender, EventArgs e)
         {
             Log.Debug(logTag, "SaveButton_ClickedAsync()");
-            App.Model.SavePoem(Editor.Text);
+            App.Model.SavePoems(Editor.Text);
+            Editor.Text = String.Empty;
         }
 
         // Todo: Clear Editor and return to main screen on Save

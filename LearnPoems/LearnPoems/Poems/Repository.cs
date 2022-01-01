@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace LearnPoems.Poems
@@ -15,7 +16,13 @@ namespace LearnPoems.Poems
     {
         public Repository()
         {
-            Poems = new List<Poem>();
+            Poems = new ObservableCollection<Poem>();
+
+            // Make sure we notice when poems are added/removed
+            Poems.CollectionChanged += (sender, e) => {
+                PoemCount = Poems.Count;
+            };
+
         }
 
         /// <summary> Try to fetch the poem identified by 'name'</summary>
@@ -32,7 +39,7 @@ namespace LearnPoems.Poems
 
         public string Path { get; set; }
 
-        public List<Poem> Poems { get; set; }
+        public ObservableCollection<Poem> Poems { get; set; }
 
         private Poem selectedPoem;
         public Poem SelectedPoem
@@ -44,6 +51,19 @@ namespace LearnPoems.Poems
                 NotifyPropertyChanged("SelectedPoem");
             }
         }
+
+        private int poemCount;
+        public int PoemCount
+        {
+            get { return poemCount; }
+            set
+            {
+                poemCount = value;
+                NotifyPropertyChanged("PoemCount");
+            }
+        }
+
+
 
 
         #region INotifyPropertyChanged

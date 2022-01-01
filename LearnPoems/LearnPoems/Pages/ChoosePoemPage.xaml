@@ -31,9 +31,11 @@
 
               <syncfusion:SfListView.FooterTemplate>
                 <DataTemplate>
-                  <Grid>
-                    <Button Text="Delete all poems"/>
-                  </Grid>
+                  <StackLayout Orientation="Horizontal">
+                    <!--<Label HorizontalTextAlignment="Left" Text="{Binding Repository.PoemCount}" />-->
+                    <Label HorizontalTextAlignment="Left" VerticalTextAlignment="Center" FontSize="Large" Text="{Binding Repository.PoemCount, StringFormat='{0} poems'}" />              
+                    <Button Text="Delete all poems" Clicked="DeleteAllPoems_ClickedAsync" />
+                  </StackLayout>
                 </DataTemplate>
               </syncfusion:SfListView.FooterTemplate>
 
