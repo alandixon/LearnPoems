@@ -1,5 +1,7 @@
 using LearnPoems.Pages;
 using LearnPoems.Poems;
+using System.IO;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -33,8 +35,12 @@ namespace LearnPoems
 
         static App()
         {
-            Settings = new Settings.Settings();
             Model = new Model.Model();
+
+            //Register Syncfusion license
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Model.SyncFusionLicenseKey);
+
+            Settings = new Settings.Settings();
 
             StartPage = new StartPage();
             ViewPoemPage = new ViewPoemPage();

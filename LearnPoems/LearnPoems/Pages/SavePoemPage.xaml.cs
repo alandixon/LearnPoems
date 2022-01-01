@@ -22,5 +22,6 @@ namespace LearnPoems.Pages
             App.Model.SavePoem(Editor.Text);
         }
 
+        // Todo: Clear Editor and return to main screen on Save
     }
 }
