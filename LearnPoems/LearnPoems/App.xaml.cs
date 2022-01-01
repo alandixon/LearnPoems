@@ -28,6 +28,8 @@ namespace LearnPoems
 
         public static PoemViewer PoemViewer { get; set; }
 
+        public static readonly double GoldenRatio = 1.6180339887;
+
         static App()
         {
             Settings = new Settings.Settings();

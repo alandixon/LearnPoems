@@ -4,9 +4,7 @@
              x:Class="LearnPoems.Pages.ViewPoemPage">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <StackLayout x:Name="PoemLayout" Padding="8">
-                </StackLayout>
+            <StackLayout x:Name="PoemLayout" Padding="8">
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
