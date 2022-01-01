@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace LearnPoems.Poems
 {
@@ -31,6 +33,28 @@ namespace LearnPoems.Poems
             {
                 return Helpers.StringHelper.RestrictStringLength(Name, 32);
             }
+        }
+
+        public static Poem GetPoemFromString(string poemString)
+        {
+            Poem poem = null;
+
+            if (!string.IsNullOrWhiteSpace(poemString))
+            {
+                // Split into lines with all possible CRLF variations
+                string[] lines = Regex.Split(poemString, "\r\n|\r|\n");
+
+                // Remove any blank lines at the top so we get a title
+                while (string.IsNullOrWhiteSpace(lines[0]))
+                {
+                    lines = lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
+                }
+
+                poem = new Poem();
+                poem.Chunks = lines;
+            }
+
+            return poem;
         }
 
         public override string ToString()

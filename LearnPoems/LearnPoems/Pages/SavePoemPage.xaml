@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LearnPoems"
+             x:Class="LearnPoems.Pages.SavePoemPage">
+
+    <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="8">
+        <Label HorizontalTextAlignment="Center" Text="Enter poem and tap Enter when finished" />
+        
+        <Label Text=""/>
+
+        <Editor x:Name="Editor" Keyboard="Text" AutoSize="TextChanges" BackgroundColor="LightSkyBlue" Placeholder="Enter text here" PlaceholderColor="White" />
+        
+        <Label Text=""/>
+        
+        <Button Text="Save" Clicked="SaveButton_Clicked" TextColor="White" BackgroundColor="MediumPurple"/>
+    </StackLayout>
+
+</ContentPage>

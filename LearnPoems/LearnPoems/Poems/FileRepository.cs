@@ -51,6 +51,14 @@ namespace LearnPoems.Poems
             return poem;
         }
 
+        public void SavePoemToFile(Poem poem)
+        {
+            string fullPath = System.IO.Path.Combine(App.PoemFolderPath, poem.Name);
+            File.WriteAllLines(fullPath, poem.Chunks);
+            RefreshPoemList();
+        }
+
+
         /// <summary> Try to fetch the poem identified by 'name'</summary>
         /// <param name="name"></param>
         /// <param name="poem"></param>

@@ -13,6 +13,9 @@
     <Compile Update="Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\SavePoemPage.xaml.cs">
+      <DependentUpon>SavePoemPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\RecentPage.xaml.cs">
       <DependentUpon>RecentPage.xaml</DependentUpon>
     </Compile>
