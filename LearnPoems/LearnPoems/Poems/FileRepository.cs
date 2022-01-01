@@ -24,6 +24,7 @@ namespace LearnPoems.Poems
         {
             files = Directory.GetFiles(repoFilePath);
 
+            Poems.Clear();
             foreach (string filePath in files)
             {
                 Poems.Add(ReadPoemFromFile(filePath));

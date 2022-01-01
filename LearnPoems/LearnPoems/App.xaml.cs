@@ -12,7 +12,7 @@ namespace LearnPoems
 
         public static Settings.Settings Settings { get; set; }
         public static Model.Model Model { get; set; }
-        public static Repository FileRepository { get; set; }
+        public static FileRepository FileRepository { get; set; }
 
         public static string SystemFolderPath { get; set; }
         public static string PoemFolderPath { get; set; }

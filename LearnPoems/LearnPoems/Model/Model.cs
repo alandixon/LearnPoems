@@ -45,6 +45,12 @@ namespace LearnPoems.Model
             get { return HelpPageText.Credits; }
         }
 
+        
+        public Repository Repository
+        {
+            get { return App.FileRepository; }
+        }
+
         private void Initialise()
         {
             try

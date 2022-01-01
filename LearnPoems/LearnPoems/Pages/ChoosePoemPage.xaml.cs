@@ -17,6 +17,11 @@ namespace LearnPoems.Pages
             NavigationPage.SetHasNavigationBar(this, false);            
         }
 
+        protected override void OnAppearing()
+        {
+            App.FileRepository.RefreshPoemList();
+        }
+
         private async void BackToStart_Clicked(object sender, System.EventArgs e)
         {
             Log.Debug(logTag, "BackToStart_Clicked()");
