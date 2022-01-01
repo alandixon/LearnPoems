@@ -17,7 +17,7 @@ namespace LearnPoems.Pages
             // Remove Nav bar
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = App.Model;
-            PageHelper.EnableLabelUri(urlLabel);
+            StringHelper.EnableLabelUri(urlLabel);
         }
 
         private async void BackToStart_Clicked(object sender, System.EventArgs e)

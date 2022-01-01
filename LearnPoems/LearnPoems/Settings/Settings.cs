@@ -1,9 +1,11 @@
-﻿using System.IO;
+﻿using LearnPoems.Poems;
+using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
 
 namespace LearnPoems.Settings
 {
-    public class Settings
+    public class Settings : INotifyPropertyChanged
     {
         private static XmlSerializer serialiser;
 
@@ -11,10 +13,6 @@ namespace LearnPoems.Settings
         {
             serialiser = new XmlSerializer(typeof(Settings));
         }
-
-        public string PoemFolder { get; set; }
-
-        public string SystemFolder { get; set; }
 
         /// <summary> Save these settings</summary>
         /// <param name="settingsFilePath"></param>
@@ -59,5 +57,38 @@ namespace LearnPoems.Settings
 
         #endregion Static methods
 
+        public string PoemFolder { get; set; }
+
+        public string SystemFolder { get; set; }
+
+        private Poem lastPoem;
+        public Poem LastPoem
+        {
+            get
+            {
+                return lastPoem;
+            }
+
+            set
+            {
+                LastPoem = value;
+                NotifyPropertyChanged("LastPoem");
+            }
+        }
+
+
+
+
+
+        #region INotifyPropertyChanged
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
+
+        #endregion INotifyPropertyChanged
     }
 }
