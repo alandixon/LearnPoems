@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.2" package="org.alandixon.LearnPoems" android:installLocation="preferExternal">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.3" package="org.alandixon.LearnPoems" android:installLocation="preferExternal">
 	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="31" />
 	<application android:label="LearnPoems.Android" android:icon="@drawable/letterp128"></application>
 </manifest>
